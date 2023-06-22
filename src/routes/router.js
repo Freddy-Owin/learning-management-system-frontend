@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Link, Navigate, Route, Routes} from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Home from "../pages/public/Home";
 import Courses from "../pages/public/Courses";
 import Register from "../pages/public/Register";
@@ -18,14 +18,16 @@ import RelatedBatch from "../pages/admin/RelatedBatch";
 import Weeks from "../pages/admin/Weeks";
 import Lessons from "../pages/admin/Lessons";
 import LessonDetail from "../pages/admin/LessonDetail";
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreator } from "../stores/actionCreator";
 import { getAuthToken } from "../services/Tokenservice";
 import ProfilePage from "../pages/students/ProfilePage";
 import AdminRegister from "../pages/public/AdminRegister";
 import StudentEnrollment from "../pages/admin/StudentEnrollment";
 import Student from "../pages/admin/Student";
+import StudentCoursePage from "../pages/students/StudentCoursePage";
+import StudentCourses from "../components/students/StudentCourses";
+import StudentCompletedCourses from "../components/students/StudentCompletedCourses";
+import StudentInprogressCourses from "../components/students/StudentInprogressCourses";
+import RelatedWeeks from "../pages/students/RelatedWeeks";
 
 let Routing = () => {
     let isAuthenticated = getAuthToken();
@@ -57,6 +59,12 @@ let Routing = () => {
                 </Route>
                 <Route path="/student" element={isAuthenticated ? <StudentProfile></StudentProfile>:<Navigate to={'/login'}></Navigate>}>
                     <Route index element={<ProfilePage></ProfilePage>}></Route>
+                    <Route path="courses" element={<StudentCoursePage></StudentCoursePage>}>
+                        <Route index element={<StudentCourses></StudentCourses>}></Route>
+                        <Route path="in-progress" element={<StudentInprogressCourses></StudentInprogressCourses>}></Route>
+                        <Route path='completed' element={<StudentCompletedCourses></StudentCompletedCourses>}></Route>
+                    </Route>
+                    <Route path="/student/courses/:course" element={<RelatedWeeks></RelatedWeeks>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

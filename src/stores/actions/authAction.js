@@ -15,10 +15,13 @@ export const register = (data) => {
                 switch (res.data.data.role.name) {
                     case "admin":
                         window.location.assign("http://localhost:3000/admin/");
+                        break;
                     case "instructor":
                         window.location.assign("http://localhost:3000/instructor/");
+                        break;
                     case "student": 
                         window.location.assign("http://localhost:3000/student/");
+                        break;
                     default:
                         break;
                 }

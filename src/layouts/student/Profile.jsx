@@ -43,7 +43,7 @@ function Profile() {
             <div className="flex">
                 <div className='w-[80%] max-sm:w-[95%]'>
                     <ProfileNavbar  data={user}></ProfileNavbar>
-                    <Outlet></Outlet>
+                    <Outlet context={user}></Outlet>
                 </div>
                 <div className="max-sm:hidden w-[20%] max-sm:w-[15%] h-screen shadow-md shadow-gray-500">
                     <ProfileSideMenu logoutHandler={logoutHandler}></ProfileSideMenu>

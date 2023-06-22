@@ -1,17 +1,13 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBarChart, faBars, faDoorClosed, faDoorOpen, faFilePen, faGraduationCap, faList, faPhone, faSchool, faSchoolCircleCheck, faTrash, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faDoorOpen, faFilePen, faGraduationCap, faPhone, faSchool, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreator } from '../../stores/actionCreator';
@@ -51,12 +47,15 @@ export default function ProfileSidebar() {
                 
             </ListItem>
             <ListItem>
-                <ListItemButton>
-                    <ListItemIcon>
-                        <FontAwesomeIcon className='text-blue-400' icon={faSchool}></FontAwesomeIcon>
-                    </ListItemIcon>
-                    <p>Courses</p>
-                </ListItemButton>
+                <Link to={"/student/courses"}>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <FontAwesomeIcon className='text-blue-400' icon={faSchool}></FontAwesomeIcon>
+                        </ListItemIcon>
+                        <p>Courses</p>
+                    </ListItemButton>
+                </Link>
+
             </ListItem>
             <ListItem>
                 <ListItemButton>
@@ -116,3 +115,5 @@ export default function ProfileSidebar() {
         </div>
     );
 }
+
+
