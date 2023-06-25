@@ -65,7 +65,7 @@ function Enrollment() {
                                 <p className='py-3 text-lg text-center'>You have enrolled successfully! Wait for our response whether we will have accepted your enrollment.</p>
                             </div>
                             <div className='w-[90%] mx-auto flex justify-end'>
-                                <button onClick={() => {setEnrollSuccess(false); navigate("/")}} className='bg-indigo-600 text-white hover:underline px-5 py-1 rounded-lg my-5'>Okay</button>
+                                <button onClick={() => {setEnrollSuccess(false); navigate("/student/courses")}} className='bg-indigo-600 text-white hover:underline px-5 py-1 rounded-lg my-5'>Okay</button>
                             </div>
                             
                         </div>

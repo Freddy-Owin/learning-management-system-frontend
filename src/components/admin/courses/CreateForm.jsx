@@ -58,7 +58,7 @@ function CourseCreateForm(props) {
                             <div className='w-[48%]'>
                                 <label>Status</label>
                                 <select defaultValue={undefined} onChange={(e) => setStatus(e.target.value)}  className='w-full py-2 px-5 bg-white'>
-                                    <option value={undefined} disabled>choose status</option>
+                                    <option value={undefined} selected disabled>choose status</option>
                                     <option value="online">online</option>
                                     <option value="offline">offline</option>
                                     <option value="internship">internship</option>

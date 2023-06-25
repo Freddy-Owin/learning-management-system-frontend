@@ -10,13 +10,12 @@ function RelatedBatch() {
     let [course, setCourse] = useState();
     let [instructors, setInstructors] = useState([]);
     let [create, setCreate] = useState(false);
-    let [newData, setNewData] = useState({});
     useEffect(() => {
         getData();
     },[]);
     useEffect(() => {
         getData();
-    },[newData]);
+    },[data]);
     let getData = () => {
         Apiservice.get("/admin/courses/batch/" + param.id)
             .then(res => setData(res.data.data))
@@ -29,7 +28,7 @@ function RelatedBatch() {
         data.course = param.id;
         Apiservice.post("/admin/batches", data)
             .then(res => {
-                setNewData(res.data.data);
+                setData(res.data.data);
                 setCreate(false);
             }).catch(err => console.log(err));
     }
@@ -37,7 +36,7 @@ function RelatedBatch() {
         let data = {status: info};
         Apiservice.patch("/admin/batches/status/"+ parameter, data)
             .then(res => {
-                setNewData(res.data.data);
+                setData(res.data.data);
             })
             .catch(err => console.log(err));
     }
@@ -53,8 +52,8 @@ function RelatedBatch() {
     let deleteBatch = (id) => {
         Apiservice.drop("/admin/batches/delete/"+id)
             .then(res => {
-                setNewData(res.data.data);
-            })
+                console.log(res)
+            }).catch(err => console.log(err))
     }
     return (
         <div>

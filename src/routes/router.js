@@ -28,6 +28,8 @@ import StudentCourses from "../components/students/StudentCourses";
 import StudentCompletedCourses from "../components/students/StudentCompletedCourses";
 import StudentInprogressCourses from "../components/students/StudentInprogressCourses";
 import RelatedWeeks from "../pages/students/RelatedWeeks";
+import RelatedLesson from "../pages/students/RelatedLesson";
+import RelatedLessonDetail from "../pages/students/RelatedLessonDetail";
 
 let Routing = () => {
     let isAuthenticated = getAuthToken();
@@ -65,6 +67,8 @@ let Routing = () => {
                         <Route path='completed' element={<StudentCompletedCourses></StudentCompletedCourses>}></Route>
                     </Route>
                     <Route path="/student/courses/:course" element={<RelatedWeeks></RelatedWeeks>}></Route>
+                    <Route path="/student/courses/:course/weeks/:week" element={<RelatedLesson></RelatedLesson>}></Route>
+                    <Route path="/student/courses/:course/weeks/:week/lessons/:lesson" element={<RelatedLessonDetail></RelatedLessonDetail>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

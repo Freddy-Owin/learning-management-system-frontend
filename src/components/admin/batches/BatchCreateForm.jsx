@@ -22,8 +22,8 @@ function BatchCreateForm(props) {
                 <div onClick={() => props.closeForm()} className='text-end cursor-pointer text-2xl text-white'>
                     <FontAwesomeIcon icon={faXmark}/>
                 </div>
-                <div className='my-5 h-[60%] flex justify-between'>
-                    <form onSubmit={(e) => submitHandler(e)} className='w-[70%] bg-gray-200'>
+                <div className='my-5 h-[70%] flex justify-between'>
+                    <form onSubmit={(e) => submitHandler(e)} className='w-[70%] py-5 bg-gray-200'>
                         <h1 className='py-5 text-center text-2xl italic text-blue-700'>Create New Batch</h1>
                         <div className='my-5 w-[90%] mx-auto'>
                             <input onChange={(e) => setName(e.target.value)} type="text" placeholder='Batch Name @example - Batch 1, Batch 2, Batch 3 ....' className='w-full px-5 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-sky-700'/>
@@ -44,7 +44,7 @@ function BatchCreateForm(props) {
                                 <input onChange={(e) => setEndTime(e.target.value)}  type='text' placeholder='@example : 1pm, 9am' className='w-full px-5 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-sky-700'/>
                             </div>
                         </div>
-                        <div className='w-[90%] flex justify-end mx-auto'>
+                        <div className='w-[90%] py-5 flex justify-end mx-auto'>
                             <button className='bg-blue-600 hover:bg-blue-700 text-white rounded-md px-3 py-1'>Save</button>
                         </div>
                     </form>

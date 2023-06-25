@@ -1,10 +1,16 @@
 import { MaterialReactTable } from 'material-react-table'
 import React from 'react'
 import studentColumns from '../../../services/table_columns/students'
-import { Button, IconButton, ListItemIcon, MenuItem } from '@mui/material'
-import { AccountCircle, Delete, Mail, Send } from '@mui/icons-material'
+import { Button, MenuItem } from '@mui/material'
+import { AccountCircle, Delete, Mail } from '@mui/icons-material'
+import Apiservice from '../../../services/Apiservice'
 
 function StudentTable(props) {
+    let removeHandler = (id) => {
+        Apiservice.drop("/admin/students/" + id) 
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
     return (
         <div>
             <MaterialReactTable 
@@ -26,8 +32,8 @@ function StudentTable(props) {
                     </Button>
                     
                 </MenuItem>,
-                <MenuItem key={2} onClick={()=>console.log(row)}>
-                    <Button color='error' className='flex gap-3'>
+                <MenuItem key={2}>
+                    <Button onClick={() => removeHandler(row.original._id)} color='error' className='flex gap-3'>
                         <Delete></Delete>
                         remove
                     </Button>

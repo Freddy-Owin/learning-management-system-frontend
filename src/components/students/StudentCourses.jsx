@@ -13,7 +13,7 @@ function StudentCourses() {
                         <div key={id} className="w-full flex justify-center max-sm:block mb-5 mx-auto shadow-lg border p-5 max-sm:p-3">
                             <div className='w-[40%] max-sm:w-full'>
                                 <img src={`http://localhost:5000/images/courses/${ data.course.image }`} className='w-[80%] max-sm:w-full rounded-lg' alt="" />
-                                <Link className='max-sm:hidden' to={`/student/courses/${data.course._id}`} >
+                                <Link className='max-sm:hidden' to={`/student/courses/${data.course._id}/`} >
                                     <button className="my-3 rounded-lg hover:text-green-600 hover:bg-white border-2 border-green-600 text-white w-[80%] text-center bg-green-600 h-10">
                                         Continue
                                         <FontAwesomeIcon icon={faArrowCircleRight} className='px-2'></FontAwesomeIcon>

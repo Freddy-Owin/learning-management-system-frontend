@@ -16,6 +16,7 @@ function EnrollmentTable(props) {
     let [showAccept, setShowAccept] = useState(false);
     let [acceptCourse, setAcceptCourse] = useState("");
     let [selectBatch, setSelectBatch] = useState("");
+    let [enrollmentId, setEnrollmentId] = useState("");
     let [batchId, setBatchId] = useState("");
     let [batch, setBatch] = useState([]);
     let columns = enrollmentColumns;
@@ -29,13 +30,14 @@ function EnrollmentTable(props) {
         setCourseId(row.course._id);
         setAcceptCourse(row.course.name);
         setStudentId(row.user._id);
+        setEnrollmentId(row._id);
         getbatch(row.course);
     };
 
     let submitHandler = (e) => {
         e.preventDefault();
         let info = {
-            course: courseId, batch: batchId, user: studentId
+            course: courseId, batch: batchId, user: studentId, id: enrollmentId
         }
         props.acceptHandler(info);
     }

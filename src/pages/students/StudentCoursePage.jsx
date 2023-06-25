@@ -17,7 +17,7 @@ function StudentCoursePage() {
     }
     useEffect(() => {
         if(user._id) {
-            Apiservice.get("/students/courses/" + user._id)
+            Apiservice.get("/students/courses/course/" + user._id)
                 .then(res => setCourse(res.data.data))
                 .catch(err => console.log(err));
         } 
