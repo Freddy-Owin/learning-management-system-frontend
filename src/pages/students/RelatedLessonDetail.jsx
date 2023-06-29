@@ -21,7 +21,7 @@ function RelatedLessonDetail() {
             <div className='flex justify-between max-sm:block items-center'>
                 <p className='text-2xl font-extrabold text-blue-500 max-sm:my-5'>{data && data.name}</p>
             </div>
-            <div className='w-[90%] my-5'>
+            <div className='w-[90%] max-sm:w-full my-5'>
                 {
                     data ? 
                     <video controls>
@@ -29,13 +29,13 @@ function RelatedLessonDetail() {
                     </video> : <div></div>
                 }
             </div>
-            <div className='w-[90%] my-5'>
+            <div className='w-[90%] max-sm:w-full my-5'>
                 <h1 className='text-2xl text-indigo-600'>Description</h1>
                 <p className='py-5'>
                     {data && data.description}
                 </p>
             </div>
-            <div className='w-[90%] flex gap-10'>
+            <div className='w-[90%] flex gap-10 max-sm:w-full'>
                 <button className='bg-gray-200 px-5 py-2 hover:bg-white hover:underline'>Go to next item</button>
                 <button onClick={() => navigate(-1)} className='bg-indigo-500 px-5 py-2 text-white'>Back</button>
             </div>
